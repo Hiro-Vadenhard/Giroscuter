@@ -1,0 +1,788 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+    width: 90%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Верхняя полоска --- */
+.top-bar {
+    background-color: #f7f7f7;
+    padding: 10px 0;
+    font-size: 13px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    position: relative; 
+    z-index: 10;
+}
+
+.top-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- Кнопки --- */
+.button {
+    display: inline-block;
+    background: FFA019;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 12px 25px;
+    text-decoration: none;
+    transition: background 0.2s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.button:hover {
+    background: #f1f0ef;
+}
+
+.button-small {
+    padding: 8px 15px;
+    font-size: 12px;
+    
+}
+
+.button-white {
+    background: #fff;
+    color: #333;
+}
+
+.button-white:hover {
+    background: #eee;
+}
+
+/* --- Шапка --- */
+.header {
+    background: #fff;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    color: #333;
+}
+
+.menu-toggle {
+    display: none; 
+}
+
+.m-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+}
+
+.menu-item {
+    margin-left: 20px;
+}
+
+.menu-link {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.menu-link:hover {
+    color: #FE8E05;
+}
+
+/* --- Баннер (Hero) --- */
+.hero {
+    background: url('../img/background.png') no-repeat center center / cover;
+    height: 877px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #fff;
+    text-align: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.hero-title {
+    font-size: 60px;
+    font-weight: 300;
+    margin-bottom: 82px;
+    margin-top: 0;
+}
+
+.hero-description {
+    font-size: 18px;
+    font-weight: 300;
+    max-width: 863px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+}
+
+.hero .button {
+    background: #ffffff !important; 
+    color: black !important;  
+    font-weight: bold;               
+    font-size: 12px;
+    width: 110px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 12px;
+    text-decoration: none;
+    margin-top: 40px;  
+
+}
+
+.hero .button:hover {
+    background: #eeeeee !important; 
+}
+
+/* --- Общие заголовки --- */
+.section-title {
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* --- Преимущества --- */
+.advantages {
+    padding: 80px 0;
+}
+/* Шапка секции (заголовок + стрелки) */
+.advantages-header {
+    display: flex;
+    justify-content: space-between; /* Разносит заголовок влево, стрелки вправо */
+    align-items: center;
+    margin-bottom: 50px; /* Отступ от шапки до иконок */
+}
+
+/* Убираем лишний отступ у заголовка, так как он теперь во флексе */
+.advantages-header .section-title {
+    margin-bottom: 0; 
+}
+
+/* Стили для стрелочек */
+.advantages-arrows {
+    display: flex;
+    gap: 10px;
+}
+
+.arrow {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+    user-select: none; /* Чтобы текст не выделялся при клике */
+}
+
+.arrow:hover {
+    color: #333; /* Темнеют при наведении */
+}
+
+/* Сетка преимуществ */
+.advantages-list {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.advantage-item {
+    /* Растягиваем элементы на всю ширину */
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Настройки иконок */
+.advantage-icon {
+    height: 90px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.advantage-icon img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.advantage-item p {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+
+}
+/* --- О нас --- */
+.about {
+    padding-bottom: 80px;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* --- Подписка --- */
+.subscribe {
+    background-color: #FFA019;
+    padding: 40px 0;
+    color: #fff;
+}
+
+.subscribe-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subscribe-text p {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 15px;
+}
+
+.input {
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.input:focus {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Особенности --- */
+.features {
+    padding: 80px 0;
+    margin-bottom: 40px;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.features-list {
+    list-style: none;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.features-footer {
+    font-size: 15px;
+    color: #555;
+    max-width: 900px;
+}
+
+/* --- Каталог --- */
+.catalog {
+    /* Делаем фон всего блока светло-серым */
+    background-color: #FBFBFB;
+    padding: 60px 0 80px 0; 
+    margin: auto
+}
+
+.catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.catalog-filters {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px 20px;
+    color: #333;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+.filter-btn.active {
+    background: #FFA019;
+    color: #fff;
+}
+
+/* Сетка каталога */
+.catalog-grid {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;        
+    gap: 25px;            
+}
+
+/* Карточка товара */
+.product-card {
+
+    width: 250px;  
+    height: 340px; 
+    
+    background-color: #FFFFFF; 
+    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    
+    padding: 20px; 
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+/* Бейджик  */
+.product-badge {
+    position: absolute;
+
+    top: 10;
+    left: 0;
+    
+    background: #FFA019;
+    color: #fff;
+    
+    padding: 6px 12px 6px 15px; 
+    font-size: 12px;
+    font-weight: 400;
+    
+    border-radius: 0 15px 15px 0; 
+    
+    z-index: 1;
+    line-height: 1;
+}
+/* Блок с картинкой */
+.product-image {
+   margin-top: 35px; 
+    
+    height: 160px; 
+    margin-bottom: 20px; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Текст товара */
+.product-category {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    flex-grow: 1; 
+}
+
+/* Цена */
+.product-price {
+    font-weight: 900;
+    font-size: 18px;
+    color: #333;
+    margin-top: auto;
+}
+
+/* --- Консультанты --- */
+.consultants {
+    padding-bottom: 80px;
+}
+
+.consultants-grid {
+    display: flex;
+    justify-content: space-between; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    gap: 20px;
+}
+.consultant-card .button {
+    background-color: #FE8E05 !important; 
+    color: #FFFFFF !important;         
+    font-size: 12px;
+    padding: 8px 15px;               
+    border-radius: 10x;                
+    font-weight: 500;                     
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.2s;    
+}
+.consultant-card .button:hover {
+    background-color: #e07d04 !important; /* Темно-оранжевый при наведении (как у остальных кнопок) */
+    color: #FFFFFF !important;
+}
+.consultant-card {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    gap: 15px; 
+    text-align: left; 
+    flex: 1; 
+}
+
+.consultant-photo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    
+}
+
+.consultant-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.consultant-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.consultant-role {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* Блок с текстом */
+.consultant-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.consultant-name {
+    font-weight: light;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.consultant-role {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* --- Бренды --- */
+.brands {
+    background: #FBFBFB;
+    padding: 40px 0;
+    margin-bottom: 60px;
+}
+
+.brands-list {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ccc;
+    text-transform: uppercase;
+}
+.brand-link:hover {
+    color: #999999;    }
+
+/* --- Полезная информация --- */
+.info {
+    padding-bottom: 80px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Карточка */
+.info-card {
+  
+    aspect-ratio: 1 / 1; 
+
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 5px; 
+    overflow: hidden;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.info-card p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+.info-card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.info-card:hover::before {
+    background: rgba(0,0,0,0.2); 
+}
+
+
+/* --- Футер --- */
+.footer {
+    background: #FBFBFB;
+    padding: 60px 0;
+    color: #555;
+    font-size: 13px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-col:first-child {
+    flex-basis: 30%;
+    padding-right: 40px;
+}
+
+.footer-col p {
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.footer-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.footer-menu {
+    list-style: none;
+}
+
+.footer-menu li {
+    margin-bottom: 10px;
+}
+
+.footer-menu a {
+    color: #555;
+}
+
+.footer-menu a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-top: 40px;
+    font-size: 12px;
+    color: #999;
+}
+
+/* =========================================
+   МОБИЛЬНАЯ ВЕРСИЯ (АДАПТИВ) 
+   ========================================= */
+@media (max-width: 992px) {
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .consultants-grid {
+        flex-direction: column;
+    }
+    
+    .info-grid {
+        flex-wrap: wrap;
+    }
+    
+    .info-card {
+        flex-basis: 48%;
+    }
+    
+    .footer-inner {
+        flex-wrap: wrap;
+    }
+    
+    .footer-col {
+        flex-basis: 45%;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Показываем бургер */
+    .m-menu {
+        display: block;
+    }
+
+    /* Меню по умолчанию скрыто */
+    .menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 5%;
+        right: 5%;
+        background: #fff;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        z-index: 10;
+    }
+
+    .menu-item {
+        margin: 10px 0;
+        margin-left: 0;
+    }
+
+    /* КОГДА ЧЕКБОКС НАЖАТ - ПОКАЗЫВАЕМ МЕНЮ */
+    .menu-toggle:checked ~ .menu {
+        display: flex;
+    }
+
+    /* Остальные мобильные стили */
+    .subscribe-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .subscribe-form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .advantages-list {
+        flex-wrap: wrap;
+    }
+
+    .advantage-item {
+        flex-basis: 48%;
+        margin-bottom: 30px;
+    }
+
+    .features-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .catalog-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card {
+        flex-basis: 100%;
+    }
+
+    .brands-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .footer-col {
+        flex-basis: 100%;
+    }
+}
